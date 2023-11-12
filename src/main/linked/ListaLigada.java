@@ -29,16 +29,19 @@ public class ListaLigada implements EstruturaElementar{
 
     @Override
     public int buscaIndice(int valor) {
-        No n = cabeca;
         int v=0;
+
+        No n = cabeca;
 
         for(n=cabeca; cabeca.getProximo()!=null; n= n.getProximo()){
            if(n.getValor()==valor){
                 return v;
 
            }
-           else
-                v++;
+           else{
+
+               v++;
+           }
            
         }
         return -v;
@@ -184,7 +187,7 @@ public class ListaLigada implements EstruturaElementar{
 
     @Override
     public void removeIndice(int indice) {
-        if(cabeca==null|| indice<0){
+        if(cabeca==null){
             return;
         }
         if(indice ==0){
@@ -215,7 +218,8 @@ public class ListaLigada implements EstruturaElementar{
 
     @Override
     public void removeFim() {
-        if(cabeca == null || cabeca.getProximo()==null){
+        if(this.cabeca == null || this.cabeca.getProximo()==null){
+            this.cabeca=null;
             return;
         }
         No atual = cabeca;
@@ -225,12 +229,8 @@ public class ListaLigada implements EstruturaElementar{
             antes = atual;
             atual = atual.getProximo();
         }
-        if(antes==null){
-            cabeca = null;
-        }else{
-
-            antes.setProximo(null);
-        }
+        antes.setProximo(null);
+        
     }
     
 }
